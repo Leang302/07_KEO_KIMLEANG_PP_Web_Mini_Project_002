@@ -36,7 +36,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           name: profile.name,
         };
       },
-      redirect: false,
     }),
   ],
 

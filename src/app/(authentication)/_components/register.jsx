@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { toast } from "sonner";
+import GoogleSignInComponent from "./GoogleSignInComponent";
 
 export default function RegisterComponent() {
   const [loading, setLoading] = useState(false);
@@ -115,11 +116,7 @@ export default function RegisterComponent() {
       </div>
 
       {/* sign in with google */}
-      <div className=" bg-ghost-white rounded-lg text-center">
-        <Button className="flex gap-2 items-start justify-center w-full bg-ghost-white text-charcoal shadow-none hover:bg-ghost-white/50">
-          <img src="/Google Icon.svg" alt="google icon" /> Sign in with google
-        </Button>
-      </div>
+      <GoogleSignInComponent />
     </form>
   );
 }

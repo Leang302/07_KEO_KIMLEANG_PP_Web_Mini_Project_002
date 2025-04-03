@@ -1,13 +1,11 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { signIn, useSession } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import React from "react";
 
 export default function GoogleSignInComponent() {
   const handleGoogleSignIn = async () => {
-    await signIn("google", {
-      redirect: false,
-    });
+    await signIn("google");
   };
   return (
     <div className="bg-ghost-white rounded-lg text-center">
