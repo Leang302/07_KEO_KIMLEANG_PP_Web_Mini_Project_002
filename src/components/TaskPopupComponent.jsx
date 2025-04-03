@@ -158,14 +158,14 @@ export default function TaskPopupComponent({
             className="mr-1 hover:bg-blue-200 p-2 w-full rounded hover:cursor-pointer text-start"
             onClick={() => setIsOpen(true)}
           >
-            Edit Workspace
+            Edit Task
           </button>
           {/* delete button */}
           <button
             className="mr-1 hover:bg-blue-200 p-2 w-full rounded hover:cursor-pointer text-start"
             onClick={() => setIsDeleteOpen(true)}
           >
-            Delete Workspace
+            Delete Task
           </button>
         </div>
       )}

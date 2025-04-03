@@ -24,7 +24,8 @@ export default function BreadCrumpComponent() {
     async function fetchWorkspace() {
       try {
         const session = await getSession();
-        if (!session?.user?.token) return;
+
+        if (!session?.user?.token && !session.user.email) return;
 
         if (!workspaceId || workspaceId.trim() === "") return;
         const workspace = await getWorkSpaceByIdAction(workspaceId);

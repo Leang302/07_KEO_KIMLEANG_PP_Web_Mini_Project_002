@@ -1,7 +1,10 @@
-import React from "react";
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 import RegisterComponent from "../_components/register";
 
-export default function RegisterPage() {
+export default async function RegisterPage() {
+  const session = await auth();
+  if (session) return redirect("/todo");
   return (
     <main>
       <div className="space-y-6 w-[540px]  mx-auto bg-white drop-shadow-light-steel-blue p-12 rounded-3xl ">
