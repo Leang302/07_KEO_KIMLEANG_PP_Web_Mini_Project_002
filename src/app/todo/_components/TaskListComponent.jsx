@@ -19,7 +19,7 @@ export default function TaskListComponent({
         <TaskCardComponent
           key={task?.taskId}
           task={task}
-          color={color}
+          status={status}
           workspaceId={workspaceId}
         />
       ))}

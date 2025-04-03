@@ -15,14 +15,12 @@ export default function StatusSelectComponent({
   taskId,
   workspaceId,
   status,
-  borderColor,
-  textColor,
+  colors,
 }) {
-  console.log(borderColor);
-  console.log(textColor);
-
   const handleStatusChange = (newStatus) => {
     const task = updateTaskStatusAction(taskId, workspaceId, newStatus);
+    console.log(colors);
+
     if (task) {
       toast("Task has been updated", {
         style: {
@@ -34,8 +32,10 @@ export default function StatusSelectComponent({
   };
   return (
     <Select onValueChange={handleStatusChange}>
-      <SelectTrigger className={`w-36 ${borderColor} ${textColor} `}>
-        <SelectValue placeholder={status} />
+      <SelectTrigger
+        className={`w-36 ${colors.borderColor} ${colors.textColor} `}
+      >
+        <SelectValue placeholder={status} className={colors.textColor} />
       </SelectTrigger>
       <SelectContent>
         <SelectItem value="NOT_STARTED">NOT_STARTED</SelectItem>

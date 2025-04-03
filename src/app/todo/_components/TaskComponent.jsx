@@ -2,12 +2,27 @@ import { Clock, Ellipsis } from "lucide-react";
 import StatusSelectComponent from "./SelectComponent";
 import DropDownActionComponent from "./DropDownActionComponent";
 
-export default function CardComponent({ task, color, workspaceId }) {
-  const colors = {
-    bgColor: `bg-${color}`,
-    textColor: `text-${color}`,
-    borderColor: `border-${color}`,
-  };
+export default function CardComponent({ task, status, workspaceId }) {
+  let colors = {};
+  if (status === "NOT_STARTED") {
+    colors = {
+      bgColor: `bg-watermelon-red`,
+      textColor: `text-watermelon-red`,
+      borderColor: `border-watermelon-red`,
+    };
+  } else if (status === "IN_PROGRESS") {
+    colors = {
+      bgColor: `bg-royal-blue`,
+      textColor: `text-royal-blue`,
+      borderColor: `border-royal-blue`,
+    };
+  } else if (status === "FINISHED") {
+    colors = {
+      bgColor: `bg-persian-green`,
+      textColor: `text-persian-green`,
+      borderColor: `border-persian-green`,
+    };
+  }
   const getDate = () => {
     const currentDate = new Date().setHours(0, 0, 0, 0);
     const dueDate = new Date(task?.endDate);
@@ -46,8 +61,7 @@ export default function CardComponent({ task, color, workspaceId }) {
           taskId={task?.taskId}
           workspaceId={workspaceId}
           status={task?.status}
-          borderColor={colors.borderColor}
-          textColor={colors.textColor}
+          colors={colors}
         />
         {/* date */}
         <p className="flex gap-3 text-light-steel-blue">

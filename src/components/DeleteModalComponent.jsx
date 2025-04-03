@@ -17,8 +17,8 @@ export function DeleteModalComponent({
   workspaceId,
 }) {
   const closeDialog = () => setIsOpen(false);
-  const handleDelete = () => {
-    const response = deleteTaskAction({
+  const handleDelete = async () => {
+    const response = await deleteTaskAction({
       workspaceId: workspaceId,
       taskId: taskId,
     });

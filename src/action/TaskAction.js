@@ -46,7 +46,7 @@ export const updateTaskAction = async ({
 export const deleteTaskAction = async ({ workspaceId, taskId }) => {
   console.log(workspaceId);
   console.log(taskId);
-  
+
   try {
     await deleteTask(workspaceId, taskId);
     revalidateTag("task");
