@@ -11,6 +11,7 @@ export const getAllWorkspaces = async () => {
       },
     }
   );
+
   const workspaces = await responses.json();
   return workspaces;
 };

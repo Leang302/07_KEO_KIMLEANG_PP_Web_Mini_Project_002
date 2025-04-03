@@ -4,10 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { KeyRound, Mail } from "lucide-react";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
+import GoogleSignInComponent from "./GoogleSignInComponent";
 
 export function LoginComponent() {
   const [loading, setLoading] = useState(false);
@@ -100,11 +102,7 @@ export function LoginComponent() {
       </div>
 
       {/* Sign In with Google */}
-      <div className="bg-ghost-white rounded-lg text-center">
-        <Button className="flex gap-2 items-start justify-center w-full bg-ghost-white text-charcoal shadow-none hover:bg-ghost-white/50">
-          <img src="/Google Icon.svg" alt="google icon" /> Login with Google
-        </Button>
-      </div>
+      <GoogleSignInComponent />
     </form>
   );
 }

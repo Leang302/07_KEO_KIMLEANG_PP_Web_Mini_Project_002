@@ -7,8 +7,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { updateTaskStatus } from "@/services/TaskService";
-import React from "react";
 import { toast } from "sonner";
 
 export default function StatusSelectComponent({
@@ -19,7 +17,6 @@ export default function StatusSelectComponent({
 }) {
   const handleStatusChange = (newStatus) => {
     const task = updateTaskStatusAction(taskId, workspaceId, newStatus);
-    console.log(colors);
 
     if (task) {
       toast("Task has been updated", {
@@ -38,9 +35,34 @@ export default function StatusSelectComponent({
         <SelectValue placeholder={status} className={colors.textColor} />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="NOT_STARTED">NOT_STARTED</SelectItem>
-        <SelectItem value="IN_PROGRESS">IN_PROGRESS</SelectItem>
-        <SelectItem value="FINISHED">FINISHED</SelectItem>
+        <SelectItem
+          value="NOT_STARTED"
+          disabled={
+            status.includes("NOT_STARTED") ||
+            status.includes("FINISHED") ||
+            status.includes("IN_PROGRESS")
+          }
+        >
+          NOT_STARTED
+        </SelectItem>
+        <SelectItem
+          value="IN_PROGRESS"
+          disabled={
+            status.includes("FINISHED") ||
+            status.includes("IN_PROGRESS") ||
+            status.includes("FINISHED")
+          }
+        >
+          IN_PROGRESS
+        </SelectItem>
+        <SelectItem
+          value="FINISHED"
+          disabled={
+            status.includes("NOT_STARTED") || status.includes("FINISHED")
+          }
+        >
+          FINISHED
+        </SelectItem>
       </SelectContent>
     </Select>
   );
