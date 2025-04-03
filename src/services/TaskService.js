@@ -13,7 +13,6 @@ export const getAllTasksByWorkspaceId = async (workspaceId) => {
     }
   );
   const tasks = await response.json();
-  console.log(tasks);
 
   return tasks;
 };
@@ -32,10 +31,6 @@ export const updateTaskStatus = async (taskId, workspaceId, status) => {
 };
 //update task info
 export const updateTask = async (taskId, workspaceId, taskRequest) => {
-  console.log(taskRequest);
-  console.log(taskId);
-  console.log(workspaceId);
-
   const headers = await headerToken();
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_AUTH_BASE_URL}/task/${taskId}/workspace/${workspaceId}`,
@@ -46,8 +41,6 @@ export const updateTask = async (taskId, workspaceId, taskRequest) => {
     }
   );
   const task = await response.json();
-  console.log(task);
-
   return task;
 };
 //create task
@@ -62,7 +55,6 @@ export const createTask = async (workspaceId, taskRequest) => {
     }
   );
   const task = await response.json();
-
   return task;
 };
 //delete task
@@ -76,7 +68,6 @@ export const deleteTask = async (workspaceId, taskId) => {
     }
   );
   const task = await response.json();
-  console.log(task);
 
   return task;
 };

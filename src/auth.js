@@ -36,6 +36,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           name: profile.name,
         };
       },
+      redirect: false,
     }),
   ],
 
@@ -53,8 +54,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       if (user) {
         token.user = user;
       }
-
-      return token; // Ensure token is always returned
+      return token;
     },
     session: async ({ session, token }) => {
       if (token && token.user) {

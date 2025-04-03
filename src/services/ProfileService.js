@@ -7,6 +7,5 @@ export const getCurrentUser = async () => {
     { headers }
   );
   const users = await response.json();
-  console.log(users);
   return users;
 };

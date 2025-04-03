@@ -38,9 +38,6 @@ export default function BreadCrumpComponent() {
       fetchWorkspace();
     }
   }, [workspaceId]);
-  useEffect(() => {
-    console.log(workspace);
-  }, [workspace]);
   return (
     <Breadcrumb>
       <BreadcrumbList className="text-lg">
@@ -49,7 +46,7 @@ export default function BreadCrumpComponent() {
             <Link href="/">Home</Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
-        {workspaceId && workspaceId.length > 0 && (
+        {workspaceId && workspace?.payload?.workspaceName && (
           <>
             <BreadcrumbSeparator />
             <BreadcrumbItem>

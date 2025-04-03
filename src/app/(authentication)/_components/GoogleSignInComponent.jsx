@@ -4,10 +4,10 @@ import { signIn, useSession } from "next-auth/react";
 import React from "react";
 
 export default function GoogleSignInComponent() {
-  //   const { data: session, status } = useSession();
-
   const handleGoogleSignIn = async () => {
-    await signIn("google");
+    await signIn("google", {
+      redirect: false,
+    });
   };
   return (
     <div className="bg-ghost-white rounded-lg text-center">
