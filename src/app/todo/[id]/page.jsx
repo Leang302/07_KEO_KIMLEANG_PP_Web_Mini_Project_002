@@ -39,22 +39,15 @@ export default async function page({ params }) {
           workspaceId={id}
           tasks={tasks}
           status="NOT_STARTED"
-          // color={taskStatusColors.NOT_STARTED}
         />
         {/* not started tasks */}
         <TaskListComponent
           workspaceId={id}
           tasks={tasks}
           status="IN_PROGRESS"
-          // color={taskStatusColors.IN_PROGRESS}
         />
         {/* not started tasks */}
-        <TaskListComponent
-          workspaceId={id}
-          tasks={tasks}
-          status="FINISHED"
-          // color={taskStatusColors.FINISHED}
-        />
+        <TaskListComponent workspaceId={id} tasks={tasks} status="FINISHED" />
       </div>
     </div>
   );

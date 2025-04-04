@@ -1,10 +1,5 @@
 import TaskCardComponent from "./TaskComponent";
-export default function TaskListComponent({
-  status,
-  tasks,
-  color,
-  workspaceId,
-}) {
+export default function TaskListComponent({ status, tasks, workspaceId }) {
   const filteredTasks = tasks?.payload?.filter(
     (task) => task.status === status
   );
@@ -14,7 +9,7 @@ export default function TaskListComponent({
   }
 
   return (
-    <div className="">
+    <div>
       {filteredTasks.map((task) => (
         <TaskCardComponent
           key={task?.taskId}
