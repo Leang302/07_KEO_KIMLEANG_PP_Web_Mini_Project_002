@@ -3,7 +3,7 @@ import HeaderToken from "@/lib/headerToken";
 export const getAllWorkspaces = async () => {
   const headers = await HeaderToken();
   const responses = await fetch(
-    `${process.env.NEXT_PUBLIC_AUTH_BASE_URL}/workspaces`,
+    `${process.env.NEXT_PUBLIC_AUTH_BASE_URL}/workspaces?pageSize=50`,
     {
       headers,
       next: {

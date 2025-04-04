@@ -16,6 +16,7 @@ import WorkspacePopupComponent from "./WorkspacePopupComponent";
 
 export default async function SidebarComponent() {
   const workspaces = await getAllWorkspaces();
+
   const colors = [
     "bg-watermelon-red",
     "bg-royal-blue",
