@@ -32,6 +32,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
+import { set } from "date-fns";
 
 export default function TaskPopupComponent({
   mode = "add",
@@ -111,6 +112,7 @@ export default function TaskPopupComponent({
         tag: "",
         endDate: "",
       });
+      setDate("");
       if (mode === "edit") {
         closeDropDown(false);
       }
